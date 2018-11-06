@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class Fakultet {
@@ -44,7 +45,7 @@ public class Fakultet {
     }
 
     public void upisiStudenta(Student s, Predmet p, Integer semestar) {
-        
+
     }
 
 }
