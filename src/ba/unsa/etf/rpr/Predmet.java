@@ -1,22 +1,14 @@
 package ba.unsa.etf.rpr;
 
-import java.util.List;
+public class Predmet {
 
-public abstract class Predmet {
     private String nazivPredmeta;
-    private List<Student> upisaniStudenti;
-    private String predmetniProfesor;
-    private int brojECTS;
+    private boolean obavezan;
 
-    Predmet() {}
-
-    Predmet(String nazivPredmeta, List<Student> upisaniStudenti, String predmetniProfesor, int brojECTS) {
+    Predmet(String nazivPredmeta, boolean obavezan) {
         this.nazivPredmeta = nazivPredmeta;
-        this.upisaniStudenti = upisaniStudenti;
-        this.predmetniProfesor = predmetniProfesor;
-        this.brojECTS = brojECTS;
+        this.obavezan = obavezan;
     }
-
 
     public String getNazivPredmeta() {
         return nazivPredmeta;
@@ -26,33 +18,11 @@ public abstract class Predmet {
         this.nazivPredmeta = nazivPredmeta;
     }
 
-    public List<Student> getUpisaniStudenti() {
-        return upisaniStudenti;
+    public boolean isObavezan() {
+        return obavezan;
     }
 
-    public void setUpisaniStudenti(List<Student> upisaniStudenti) {
-        this.upisaniStudenti = upisaniStudenti;
+    public void setObavezan(boolean obavezan) {
+        this.obavezan = obavezan;
     }
-
-    public String getPredmetniProfesor() {
-        return predmetniProfesor;
-    }
-
-    public void setPredmetniProfesor(String predmetniProfesor) {
-        this.predmetniProfesor = predmetniProfesor;
-    }
-
-    public int getBrojECTS() {
-        return brojECTS;
-    }
-
-    public void setBrojECTS(int brojECTS) {
-        this.brojECTS = brojECTS;
-    }
-
-    public void upisiStudenta(Student s) {}
-
-    public void ispisiStudenta(Student s) {}
-
-    public void ispisiStudente() {}
 }
