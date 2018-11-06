@@ -1,13 +1,19 @@
 package ba.unsa.etf.rpr;
 
 import java.util.List;
+import java.util.Set;
 
 public class Fakultet {
+
     private List<Student> studenti;
     private List<Predmet> predmeti;
+    private Set<Upis> upisi;
 
-    Fakultet() {}
-    Fakultet(List<Student> studenti, List<Predmet> predmeti) {}
+    public Fakultet(List<Student> studenti, List<Predmet> predmeti, Set<Upis> upisi) {
+        this.studenti = studenti;
+        this.predmeti = predmeti;
+        this.upisi = upisi;
+    }
 
     public List<Student> getStudenti() {
         return studenti;
@@ -25,15 +31,20 @@ public class Fakultet {
         this.predmeti = predmeti;
     }
 
-    public void kreirajStudenta(String ime, String prezime, int brojIndeksa, int brojECTS) {}
+    public Set<Upis> getUpisi() {
+        return upisi;
+    }
 
-    public void izbrisiStudenta(Student s) {}
+    public void setUpisi(Set<Upis> upisi) {
+        this.upisi = upisi;
+    }
 
-    public void kreirajPredmet(String nazivPredmeta, String predmetniProfesor, int brojECTS) {}
+    public void dodajStudenta(Student s) {
+        this.studenti.add(s);
+    }
 
-    public void izbrisiPredmet(Predmet p) {}
+    public void upisiStudenta(Student s, Predmet p, Integer semestar) {
+        
+    }
 
-    public void upisiStudenta(Student s, Predmet p) {}
-
-    public void ispisiStudenta(Student s, Predmet p) {}
 }
