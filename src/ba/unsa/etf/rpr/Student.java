@@ -36,4 +36,9 @@ public class Student {
         this.brojIndeksa = brojIndeksa;
     }
 
+    @Override
+    public String toString() {
+        return this.getIme() + " " + this.getPrezime() + " (" + this.getBrojIndeksa() + ")";
+    }
+
 }

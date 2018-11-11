@@ -5,17 +5,17 @@ import java.util.Map;
 
 public class PlanStudija {
 
-    private Map<Integer, List<Predmet>> plan;
+    private Map<Integer, Predmet> plan;
 
-    public PlanStudija(Map<Integer, List<Predmet>> plan) {
+    public PlanStudija(Map<Integer, Predmet> plan) {
         this.plan = plan;
     }
 
-    public Map<Integer, List<Predmet>> getPlan() {
+    public Map<Integer, Predmet> getPlan() {
         return plan;
     }
 
-    public void setPlan(Map<Integer, List<Predmet>> plan) {
+    public void setPlan(Map<Integer, Predmet> plan) {
         this.plan = plan;
     }
 
