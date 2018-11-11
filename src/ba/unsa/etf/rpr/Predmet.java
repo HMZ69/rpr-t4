@@ -12,6 +12,8 @@ public class Predmet {
     Predmet(List<Student> studenti, String nazivPredmeta, Integer semestar, boolean obavezan) {
         this.nazivPredmeta = nazivPredmeta;
         this.obavezan = obavezan;
+        this.studenti = studenti;
+        this.semestar = semestar;
     }
 
     public String getNazivPredmeta() {

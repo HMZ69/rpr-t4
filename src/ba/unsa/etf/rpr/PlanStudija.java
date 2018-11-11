@@ -1,21 +1,22 @@
 package ba.unsa.etf.rpr;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class PlanStudija {
 
-    private Map<Integer, Predmet> plan;
+    private Map<Integer, ArrayList<Predmet>> plan;
 
-    public PlanStudija(Map<Integer, Predmet> plan) {
+    public PlanStudija(Map<Integer, ArrayList<Predmet>> plan) {
         this.plan = plan;
     }
 
-    public Map<Integer, Predmet> getPlan() {
+    public Map<Integer, ArrayList<Predmet>> getPlan() {
         return plan;
     }
 
-    public void setPlan(Map<Integer, Predmet> plan) {
+    public void setPlan(Map<Integer, ArrayList<Predmet>> plan) {
         this.plan = plan;
     }
 

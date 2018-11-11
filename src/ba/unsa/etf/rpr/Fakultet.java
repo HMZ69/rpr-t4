@@ -1,9 +1,6 @@
 package ba.unsa.etf.rpr;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Fakultet {
 
@@ -15,9 +12,9 @@ public class Fakultet {
         this.studenti = studenti;
         this.predmeti = predmeti;
         this.plan = plan;
-        for (Predmet p : this.predmeti) {
+        /*for (Predmet p : this.predmeti) {
             this.plan.getPlan().put(p.getSemestar(), p);
-        }
+        }*/
     }
 
     public List<Student> getStudenti() {
@@ -36,8 +33,19 @@ public class Fakultet {
         this.predmeti = predmeti;
     }
 
+    public void setPlan(PlanStudija plan) {
+        this.plan = plan;
+    }
+
     public void dodajPredmet(Predmet p) {
         this.predmeti.add(p);
+        ArrayList<Predmet> pp = new ArrayList<Predmet>();
+        for (Predmet pr : this.getPredmeti()) {
+            if (pr.getSemestar().equals(p.getSemestar())) {
+                pp.add(pr);
+                this.plan.getPlan().put(p.getSemestar(), pp);
+            }
+        }
     }
 
     public void dodajStudenta(Student s) {
@@ -110,11 +118,13 @@ public class Fakultet {
 
     public void ispisPredmetaUSemestru(Integer semestar) {
         int brojac = 0;
-        System.out.println(semestar + ". Semestar");
-        for(Map.Entry<Integer, Predmet> entry : this.plan.getPlan().entrySet()) {
+        System.out.println(semestar + ". SEMESTAR:\n");
+        for(Map.Entry<Integer, ArrayList<Predmet>> entry : this.plan.getPlan().entrySet()) {
             if(entry.getKey().equals(semestar)) {
-                brojac++;
-                System.out.println(brojac + ". " + entry.getValue().toString());
+                for (Predmet p : entry.getValue()) {
+                    brojac++;
+                    System.out.println(brojac + ". " + p.toString());
+                }
             }
         }
     }
@@ -129,13 +139,23 @@ public class Fakultet {
     public void ispisStudenataPoSemestru(Integer semestar) {
         int brojac = 0;
         System.out.println(semestar + ". Semestar");
-        for(Map.Entry<Integer, Predmet> entry : this.plan.getPlan().entrySet()) {
+        for(Map.Entry<Integer, ArrayList<Predmet>> entry : this.plan.getPlan().entrySet()) {
             if (entry.getKey().equals(semestar)) {
-                for (Student s : entry.getValue().getStudenti()) {
-                    brojac++;
-                    System.out.println(brojac + ". " + s.toString());
+                for (Predmet p : entry.getValue()) {
+                    for (Student s : p.getStudenti()) {
+                        brojac++;
+                        System.out.println(brojac + ". " + s.toString());
+                    }
                 }
             }
+        }
+    }
+
+    public void ispisSvihStudenata() {
+        int brojac = 0;
+        for (Student s : this.getStudenti()) {
+            brojac++;
+            System.out.println(brojac + ". " + s.toString());
         }
     }
 }
