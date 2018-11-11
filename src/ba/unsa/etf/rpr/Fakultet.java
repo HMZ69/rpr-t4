@@ -44,6 +44,20 @@ public class Fakultet {
         this.studenti.add(s);
     }
 
+    public void izbrisiStudenta(Student s) {
+        for (Student st : this.getStudenti()) {
+            if (st.equals(s))
+                this.getStudenti().remove(st);
+        }
+    }
+
+    public void izbrisiPredmet(Predmet p) {
+        for (Predmet pr : this.getPredmeti()) {
+            if (pr.equals(p))
+                this.getPredmeti().remove(pr);
+        }
+    }
+
     public void upisiStudenta(Student s, Predmet p) {
         boolean postoji = false;
         for (Student st : this.getStudenti()) {
@@ -96,10 +110,10 @@ public class Fakultet {
 
     public void ispisPredmetaUSemestru(Integer semestar) {
         int brojac = 0;
+        System.out.println(semestar + ". Semestar");
         for(Map.Entry<Integer, Predmet> entry : this.plan.getPlan().entrySet()) {
             if(entry.getKey().equals(semestar)) {
                 brojac++;
-                System.out.println(entry.getKey() + ". Semestar:");
                 System.out.println(brojac + ". " + entry.getValue().toString());
             }
         }
@@ -109,6 +123,19 @@ public class Fakultet {
         for (Predmet pr : this.getPredmeti()) {
             if (pr.equals(p))
                 pr.ispisStudenata();
+        }
+    }
+
+    public void ispisStudenataPoSemestru(Integer semestar) {
+        int brojac = 0;
+        System.out.println(semestar + ". Semestar");
+        for(Map.Entry<Integer, Predmet> entry : this.plan.getPlan().entrySet()) {
+            if (entry.getKey().equals(semestar)) {
+                for (Student s : entry.getValue().getStudenti()) {
+                    brojac++;
+                    System.out.println(brojac + ". " + s.toString());
+                }
+            }
         }
     }
 }
