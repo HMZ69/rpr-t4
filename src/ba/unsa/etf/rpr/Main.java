@@ -31,14 +31,19 @@ public class Main {
         f.dodajPredmet(p3);
         f.dodajPredmet(p4);
         f.dodajPredmet(p5);
-        //f.ispisSvihStudenata();
+        System.out.println("Metoda koja ispisuje sve studente na fakultetu:");
+        f.ispisSvihStudenata();
         f.upisiStudenta(s1,p1);
         f.upisiStudenta(s2,p1);
         f.upisiStudenta(s3,p4);
         f.upisiStudenta(s1,p2);
         f.upisiStudenta(s3,p3);
         f.upisiStudenta(s4,p4);
-        //f.ispisStudenataPoPredmetu(p4);
+        System.out.println("Metoda koja ispisuje studente sa nekog predmeta:");
+        f.ispisStudenataPoPredmetu(p4);
+        System.out.println("Metoda koja ispisuje predmete iz nekog semestra:");
         f.ispisPredmetaUSemestru(2);
+        System.out.println("Metoda koja ispisuje sve studente sa nekog semestra:");
+        f.ispisStudenataPoSemestru(1);
     }
 }

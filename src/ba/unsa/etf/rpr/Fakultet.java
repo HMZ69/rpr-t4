@@ -118,7 +118,7 @@ public class Fakultet {
 
     public void ispisPredmetaUSemestru(Integer semestar) {
         int brojac = 0;
-        System.out.println(semestar + ". SEMESTAR:\n");
+        System.out.println(semestar + ". SEMESTAR PREDMETI:\n");
         for(Map.Entry<Integer, ArrayList<Predmet>> entry : this.plan.getPlan().entrySet()) {
             if(entry.getKey().equals(semestar)) {
                 for (Predmet p : entry.getValue()) {
@@ -130,6 +130,7 @@ public class Fakultet {
     }
 
     public void ispisStudenataPoPredmetu(Predmet p) {
+        System.out.println("Studenti koji slusaju predmet " + p.toString() + ":");
         for (Predmet pr : this.getPredmeti()) {
             if (pr.equals(p))
                 pr.ispisStudenata();
@@ -138,7 +139,7 @@ public class Fakultet {
 
     public void ispisStudenataPoSemestru(Integer semestar) {
         int brojac = 0;
-        System.out.println(semestar + ". Semestar");
+        System.out.println(semestar + ". SEMESTAR STUDENTI:\n");
         for(Map.Entry<Integer, ArrayList<Predmet>> entry : this.plan.getPlan().entrySet()) {
             if (entry.getKey().equals(semestar)) {
                 for (Predmet p : entry.getValue()) {
